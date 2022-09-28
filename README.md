@@ -2,11 +2,11 @@
 In this tutorial we will setup Azure Sentinel (SIEM) and connect it to a live virtual machine acting as a honey pot. We will observe live attacks (RDP Brute Force) from all around the world. We will use a custom PowerShell script to look up the attackers Geolocation information and plot it on the Azure Sentinel Map.
 STEPS:
 1. Create Azure Subscription
-> First start by setting up a free Azure account (https://azure.microsoft.com/en-us/free/). A $200 Azure credit will be assigned to your account for up to 30 days.
+First start by setting up a free Azure account (https://azure.microsoft.com/en-us/free/). A $200 Azure credit will be assigned to your account for up to 30 days.
 2. Create Virtual Machine
 > This is the machine that will be exposed on the internet. To create one, open -> https://portal.azure.com/#home and input “Virtual machines” and select it on the search bar.
 > In the “Create a virtual machine” screen, input the following info on the “Basics” tab:
-Instance details: Virtual machine name: honeypot1-vm. Leave everything as default
+> Instance details: Virtual machine name: honeypot1-vm. Leave everything as default
 > There is regional weirdness with Sentinel. For whatever reason, I could not add Sentinel to a US West 3 workspace even though the documentation said it Sentinel was "non-regional"...anyway, I used UK South and it worked like a charm.
 > Network Interface: NIC network security group: Click on the “Advanced” toggle. Configure network security group: Click on the “Create new” button. In the “Create network security group” screen remove the default “Inbound rules”. Click on “Add an inbound rule” and input the following. Click on the “Add” button. This will allow all traffic from the internet to enter our VM.
 > Destination port ranges: *
